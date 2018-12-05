@@ -286,7 +286,18 @@ void Ant::displayBoardWithAnt()
 			//displays the ant '@' at the cell it is currently occupying
 			if (getCurrentRow() == (i + 1) && getCurrentCol() == (j + 1))
 			{
-				cout << "@" << "   ";
+				//cout << "@" << "   ";
+
+				if (getFacingDirection() == 'N') {
+					cout << "^";
+				} else if (getFacingDirection() == 'E') {
+					cout << ">";
+				} else if (getFacingDirection() == 'S') {
+					cout << "v";
+				} else if (getFacingDirection() == 'W') {
+					cout << "<";
+				}
+				cout << "   ";
 			}
 			else
 			{
@@ -312,10 +323,8 @@ void Ant::displayInstructionsWithWait()
 	cout << "in same spin direction and attempt a move forward. The ant will repeat this until a move forward is possible." << endl << endl;
 
 	cout << "White squares are designated with \"_\"." << endl;
-	cout << "Black squares are designated with \"#\"." << endl;
-	cout << "The ant will be shown as \"@\"." << endl;
-	cout << "Note that you won't be able to tell which way the ant is facing from the display," << endl;
-	cout << "but don't worry, its facing direction is kept track internally." << endl;
+	cout << "Black squares are designated with \"#\"." << endl << endl;
+	cout << "The ant will be shown as \"^\", \">\", \"v\", or \"<\" depending on its facing direction." << endl;
 	cout << "------------------------------------------------------------------------------------------------------------" << endl;
 	cout << "Please press [Enter] to continue." << endl;
 	cin.ignore();
@@ -330,13 +339,14 @@ void Ant::displayInstructionsWithWait()
 ***************************************************************************************************************/
 void Ant::runSimulation()
 {
+	system("clear");
 	displayBoardWithAnt();
 	cout << "Steps remaining: " << getCount() << endl;
 
 	//special case if array is 1x1
 	if (board->getRow() == 1 && board->getCol() == 1)
 	{
-		cout << "This will result in an infinite loop since the ant will have no space to move." << endl;
+		cout << endl << "This won't be an interesting simulation since the ant will have no space to move." << endl;
 	}
 	else
 	{
@@ -371,6 +381,7 @@ void Ant::runSimulation()
 
 			decrementCount();
 
+			system("clear");
 			displayBoardWithAnt();
 			cout << "Steps remaining: " << getCount() << endl;
 		}

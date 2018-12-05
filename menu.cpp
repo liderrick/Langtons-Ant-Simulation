@@ -63,8 +63,9 @@ bool mainMenu()
 	bool play = false;
 	int choice;
 
+	system("clear");
 	cout << "Welcome to a simple simulation of Langton's Ant." << endl;
-	
+
 	do
 	{
 		cout << "Please select an option:" << endl;
@@ -81,13 +82,13 @@ bool mainMenu()
 			{
 			case 1: play = true;
 				break;
-			case 2: cout << "Goodbye." << endl;
+			case 2: cout << endl << "Goodbye." << endl;
 				break;
 			}
 		}
 		else
 		{
-			cout << "Invalid choice. Try again." << endl;
+			cout << endl << "Invalid choice. Try again." << endl << endl;
 		}
 	} while (validChoice == false);
 
@@ -102,8 +103,9 @@ bool mainMenu()
 void menuPromptArraySize(int &userRow, int &userCol)
 {
 	bool validRow = false, validCol = false;
-	
-	cout << "We will first need to construct the array." << endl;
+
+	system("clear");
+	cout << "We will first need to construct the array." << endl << endl;
 
 	do
 	{
@@ -117,10 +119,12 @@ void menuPromptArraySize(int &userRow, int &userCol)
 		}
 		else
 		{
-			cout << "Invalid choice. Try again." << endl;
+			cout << endl << "Invalid choice. Try again." << endl << endl;
 		}
 
 	} while (validRow == false);
+
+	system("clear");
 
 	do
 	{
@@ -134,12 +138,14 @@ void menuPromptArraySize(int &userRow, int &userCol)
 		}
 		else
 		{
-			cout << "Invalid choice. Try again." << endl;
+			cout << endl << "Invalid choice. Try again." << endl << endl;
 		}
 
 	} while (validCol == false);
 
-	cout << "You've chosen to construct a " << userRow << " x " << userCol << " array." << endl;
+	system("clear");
+
+	cout << "You've chosen to construct a " << userRow << " x " << userCol << " array." << endl << endl;
 
 }
 
@@ -155,8 +161,8 @@ bool menuPromptRandomStartPosition()
 	bool randomStartingPosition;
 	int randChoice;
 
-	cout << "Now you will need to decide on the starting position and facing direction of the ant." << endl;
-	
+	cout << endl << "Now you will need to decide on the starting position and facing direction of the ant." << endl << endl;
+
 	do
 	{
 		cout << "Would you like to choose a starting position and facing direction or allow the program to randomly choose for you? " << endl;
@@ -177,10 +183,10 @@ bool menuPromptRandomStartPosition()
 		}
 		else
 		{
-			cout << "Invalid choice. Try again." << endl;
+			cout << endl << "Invalid choice. Try again." << endl << endl;
 		}
 	} while (validRandChoice == false);
-	
+
 	return randomStartingPosition;
 }
 
@@ -195,6 +201,8 @@ void menuPromptStartPosition(int &startingRow, int &startingCol, char &startingF
 {
 	bool validStartingRow = false, validStartingCol = false, validStartingFacingDirection = false;
 
+	system("clear");
+
 	do
 	{
 		cout << "Which ROW would you like the ant to start at?" << endl;
@@ -207,9 +215,11 @@ void menuPromptStartPosition(int &startingRow, int &startingCol, char &startingF
 		}
 		else
 		{
-			cout << "Invalid choice. Try again." << endl;
+			cout << endl << "Invalid choice. Try again." << endl << endl;
 		}
 	} while (validStartingRow == false);
+
+	system("clear");
 
 	do
 	{
@@ -223,9 +233,11 @@ void menuPromptStartPosition(int &startingRow, int &startingCol, char &startingF
 		}
 		else
 		{
-			cout << "Invalid choice. Try again." << endl;
+			cout << endl << "Invalid choice. Try again." << endl << endl;
 		}
 	} while (validStartingCol == false);
+
+	system("clear");
 
 	do
 	{
@@ -244,11 +256,13 @@ void menuPromptStartPosition(int &startingRow, int &startingCol, char &startingF
 			validStartingFacingDirection = true;
 			break;
 		default:
-			cout << "Invalid choice. Try again." << endl;
+			cout << endl << "Invalid choice. Try again." << endl << endl;
 			break;
 		}
 
 	} while (validStartingFacingDirection == false);
+
+	system("clear");
 
 	cout << "You've chosen the ant to start at row " << startingRow << " and column " << startingCol << " facing ";
 	cout << directionCharToString(startingFacingDirection) << "." << endl;
@@ -267,7 +281,7 @@ int menuPromptNumberOfSteps()
 
 	do
 	{
-		cout << "How many steps would you like the simulation to make? " << endl;
+		cout << endl << "How many steps would you like the simulation to make? " << endl;
 		cout << "(Enter an integer greater than or equal to 1): ";
 		inputNumberValidation(chosenNumberOfSteps);
 
@@ -277,10 +291,13 @@ int menuPromptNumberOfSteps()
 		}
 		else
 		{
-			cout << "Invalid choice. Try again." << endl;
+			cout << endl << "Invalid choice. Try again." << endl;
 		}
 
 	} while (validChoice == false);
+
+	system("clear");
+	cout << "You have chosen to run the simulation for " << chosenNumberOfSteps << " steps." << endl << endl;
 
 	return chosenNumberOfSteps;
 }

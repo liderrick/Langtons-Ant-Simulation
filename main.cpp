@@ -46,6 +46,8 @@ int main()
 			setSrand();	//set seed for srand() function
 			randomStartAndDirection(startingRow, startingCol, startingFacingDirection, userRow, userCol);
 
+			system("clear");
+
 			cout << "The program randomly chosen the ant to start at row " << startingRow << " and column " << startingCol << " facing ";
 			cout << directionCharToString(startingFacingDirection) << "." << endl;
 		}
@@ -62,7 +64,7 @@ int main()
 		ant.displayInstructionsWithWait();
 		ant.runSimulation();
 
-		cout << "This simulation of Langton's Ant has concluded." << endl;
+		cout << endl << "This simulation of Langton's Ant has concluded." << endl;
 		cout << "Thank you for playing." << endl;
 	}
 
